@@ -110,7 +110,7 @@ function SceneContent({ activeSection, scrollProgress }: BackgroundProps) {
 
   // ── Setup Core Lattice wireframe geometry and adjacency graph ──────────────
   const latticeGeometry = useMemo(() => {
-    return new THREE.IcosahedronGeometry(2, 1);
+    return new THREE.IcosahedronGeometry(2, 2);
   }, []);
 
   const vertices = useMemo(() => {
@@ -220,7 +220,7 @@ function SceneContent({ activeSection, scrollProgress }: BackgroundProps) {
     if (latticeRef.current) {
       const material = latticeRef.current.material as THREE.MeshBasicMaterial;
       
-      const targetOpacity = activeSection >= 1 ? 0.15 : 0.02;
+      const targetOpacity = activeSection >= 1 ? 0.15 : 0.05;
       material.opacity = THREE.MathUtils.lerp(material.opacity, targetOpacity, 0.05);
 
       // Symmetrical lattice deconstruction scale lerp (expanded in Act IV & V)
@@ -228,8 +228,8 @@ function SceneContent({ activeSection, scrollProgress }: BackgroundProps) {
       const currentScale = THREE.MathUtils.lerp(latticeRef.current.scale.x, targetScale, 0.05);
       latticeRef.current.scale.setScalar(currentScale);
 
-      latticeRef.current.rotation.y = time * 0.06;
-      latticeRef.current.rotation.x = time * 0.03;
+      latticeRef.current.rotation.y = time * 0.04;
+      latticeRef.current.rotation.x = time * 0.02;
     }
 
     // 4. VRF Pulse path zipping nested inside Core Lattice (Active in Act II, III, IV, and V)
