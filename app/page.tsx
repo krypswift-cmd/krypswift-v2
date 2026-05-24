@@ -89,7 +89,7 @@ export default function ObsidianTerminal() {
         className="btn-primary btn-primary-sm fixed top-8 right-6 md:right-16 z-20 backdrop-blur-md"
         style={{ background: 'rgba(10, 10, 12, 0.5)' }}
       >
-        Portal →
+        Portal
       </a>
 
       <div className="scroll-container" onScroll={handleScroll}>
@@ -116,7 +116,7 @@ export default function ObsidianTerminal() {
             </p>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center animate-pulse z-10 hidden md:block">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center animate-pulse z-10 block">
             <p className="font-mono text-[10px] tracking-[0.25em] text-[#E5E5E5]/30 uppercase">
               ↓ · Scroll to explore
             </p>
@@ -169,7 +169,7 @@ export default function ObsidianTerminal() {
             </p>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 hidden md:block">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 block">
             [ Section 02 · Staking ]
           </div>
         </section>
@@ -260,7 +260,7 @@ export default function ObsidianTerminal() {
             </div>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 hidden md:block">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 block">
             [ Section 03 · Public Goods ]
           </div>
         </section>
@@ -348,7 +348,7 @@ export default function ObsidianTerminal() {
             </div>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 hidden md:block">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 block">
             [ Section 04 · Builders ]
           </div>
         </section>
