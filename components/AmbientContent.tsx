@@ -21,14 +21,13 @@ function glyphPositions(actIndex: number, count: number): Array<{ x: number; y: 
     const r3 = rand();
     let x: number, y: number;
 
-    // Four corner zones — avoids central headline/CTA area
+    // Four open-space zones — all within y:15-48% (below eyebrow, above mobile text areas)
     switch (zone) {
-      case 0: x = 64 + r2 * 16; y = 6  + r3 * 16; break; // top-right (avoids top-left eyebrow)
-      case 1: x = 20 + r2 * 42; y = 4  + r3 * 14; break; // top-center
-      case 2: x = 4  + r2 * 12; y = 78 + r3 * 14; break; // bottom-left corner
-      default: x = 80 + r2 * 14; y = 76 + r3 * 16; break; // bottom-right corner
+      case 0: x = 48 + r2 * 34; y = 15 + r3 * 22; break; // upper-right  (x:48-82%, y:15-37%)
+      case 1: x = 20 + r2 * 28; y = 15 + r3 * 18; break; // upper-left   (x:20-48%, y:15-33%)
+      case 2: x = 58 + r2 * 26; y = 28 + r3 * 20; break; // right-center (x:58-84%, y:28-48%)
+      default: x = 30 + r2 * 36; y = 22 + r3 * 16; break; // center-upper (x:30-66%, y:22-38%)
     }
-    // Clamp within [2, 94] to stay inside the viewport
     x = Math.max(2, Math.min(94, x));
     y = Math.max(3, Math.min(94, y));
     return { x, y };
@@ -63,6 +62,7 @@ export default function AmbientContent({ act }: AmbientContentProps) {
         return (
           <span
             key={idx}
+            className="ambient-glyph"
             style={{
               position: 'absolute',
               left: `${pos.x}%`,
@@ -70,7 +70,6 @@ export default function AmbientContent({ act }: AmbientContentProps) {
               fontFamily: "'Noto Sans Mono', 'JetBrains Mono', 'Segoe UI Symbol', 'Apple Symbols', system-ui, monospace",
               fontSize: '11px',
               color: '#00F0FF',
-              opacity: 0.07,
               userSelect: 'none',
               whiteSpace: 'nowrap',
               lineHeight: 1,

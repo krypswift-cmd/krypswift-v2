@@ -120,6 +120,17 @@ html, body {
   }
 }
 
+/* Ambient glyphs — brighter on mobile where the 3D background is darker */
+.ambient-glyph {
+  opacity: 0.07;
+}
+
+@media (max-width: 767px) {
+  .ambient-glyph {
+    opacity: 0.18;
+  }
+}
+
 /* Act IV — 200-cell allocation grid, mobile size (~62% of 380px viewport) */
 .grid-200-mobile {
   display: grid;
