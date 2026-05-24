@@ -278,7 +278,7 @@ export default function ObsidianTerminal() {
           {/* Mobile: grid top-right, text bottom-left */}
           <div
             className="md:hidden absolute z-10"
-            style={{ top: '32px', right: '24px', width: '200px' }}
+            style={{ top: '108px', right: '24px', width: '200px' }}
           >
             <div className="grid-200-mobile">
               {ALLOCATION_SQUARES.map((i) => (
