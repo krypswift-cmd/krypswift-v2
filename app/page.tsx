@@ -278,7 +278,7 @@ export default function ObsidianTerminal() {
           {/* Mobile: grid top-right, text bottom-left */}
           <div
             className="md:hidden absolute z-10"
-            style={{ top: '76px', right: '24px', width: '62vw' }}
+            style={{ top: '32px', right: '24px', width: '200px' }}
           >
             <div className="grid-200-mobile">
               {ALLOCATION_SQUARES.map((i) => (
@@ -292,7 +292,7 @@ export default function ObsidianTerminal() {
 
           <div
             className="md:hidden absolute bottom-0 left-0 w-full flex flex-col px-6 pb-8 pt-6 z-10 hud-scrim-mask"
-            style={{ height: '44%' }}
+            style={{ height: '40%' }}
           >
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 3 ? 'active' : ''}`}
