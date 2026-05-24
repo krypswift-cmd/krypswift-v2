@@ -184,8 +184,8 @@ export default function ObsidianTerminal() {
             </p>
           </div>
 
-          {/* Mobile: full-bleed bottom panel */}
-          <div className="absolute bottom-0 left-0 w-full flex flex-col justify-center px-6 pb-6 pt-4 z-10 hud-scrim-mask md:hidden" style={{ height: '84%' }}>
+          {/* Mobile: text — floats just below eyebrow/portal row */}
+          <div className="md:hidden absolute left-0 right-0 px-6 z-10" style={{ top: '108px' }}>
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 2 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(26px, 7vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
@@ -198,26 +198,30 @@ export default function ObsidianTerminal() {
             <div className="mt-4 font-mono text-[9px] tracking-[0.25em] text-[#00F0FF]/35 uppercase">
               10% monthly → Public Goods Vault
             </div>
+          </div>
 
-            {/* Status panel — visible on mobile below body copy */}
-            <div className="mt-7 border border-[rgba(0,240,255,0.2)] bg-[rgba(0,18,28,0.6)]">
-              <div className="font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase px-3 pt-3 pb-2">
-                Public Goods · outflow status
-              </div>
-              <div className="px-3 pb-3">
-                {([
-                  ['Status',         'Active'],
-                  ['Monthly sweep',  '10%'],
-                  ['Vault target',   'Public Goods Fund'],
-                  ['Governance',     'DAO nominated'],
-                  ['Whitelist gate', 'On-chain DAO'],
-                  ['Release cycle',  'Annual'],
-                ] as [string, string][]).map(([key, val]) => (
-                  <div key={key} className="flex justify-between items-baseline py-1.5 border-b border-[rgba(255,255,255,0.04)] last:border-0">
-                    <span className="font-mono text-[11px] tracking-[0.08em] text-neutral-500">{key}</span>
-                    <span className="font-mono text-[11px] tracking-[0.08em] text-[#00F0FF]/70">{val}</span>
-                  </div>
-                ))}
+          {/* Mobile: status panel — stays bottom-anchored */}
+          <div className="md:hidden absolute bottom-0 left-0 right-0 px-6 pb-6 z-10 hud-scrim-mask" style={{ minHeight: '38%' }}>
+            <div className="flex flex-col justify-end h-full">
+              <div className="border border-[rgba(0,240,255,0.2)] bg-[rgba(0,18,28,0.6)]">
+                <div className="font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase px-3 pt-3 pb-2">
+                  Public Goods · outflow status
+                </div>
+                <div className="px-3 pb-3">
+                  {([
+                    ['Status',         'Active'],
+                    ['Monthly sweep',  '10%'],
+                    ['Vault target',   'Public Goods Fund'],
+                    ['Governance',     'DAO nominated'],
+                    ['Whitelist gate', 'On-chain DAO'],
+                    ['Release cycle',  'Annual'],
+                  ] as [string, string][]).map(([key, val]) => (
+                    <div key={key} className="flex justify-between items-baseline py-1.5 border-b border-[rgba(255,255,255,0.04)] last:border-0">
+                      <span className="font-mono text-[11px] tracking-[0.08em] text-neutral-500">{key}</span>
+                      <span className="font-mono text-[11px] tracking-[0.08em] text-[#00F0FF]/70">{val}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
