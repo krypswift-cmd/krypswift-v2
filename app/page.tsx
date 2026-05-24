@@ -185,7 +185,7 @@ export default function ObsidianTerminal() {
           </div>
 
           {/* Mobile: text — floats just below eyebrow/portal row */}
-          <div className="md:hidden absolute left-0 right-0 px-6 z-10" style={{ top: '108px' }}>
+          <div className="md:hidden absolute left-0 right-0 px-6 z-10" style={{ top: '72px' }}>
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 2 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(26px, 7vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
