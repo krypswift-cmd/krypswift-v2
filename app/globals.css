@@ -135,3 +135,61 @@ html, body {
   border: 1px solid rgba(0, 240, 255, 0.08);
 }
 
+/* ── Button System ─────────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  background: transparent;
+  color: rgba(0, 240, 255, 0.7);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+  border-color: rgba(0, 240, 255, 0.5);
+  background: rgba(0, 240, 255, 0.08);
+  color: rgba(0, 240, 255, 1);
+}
+
+.btn-primary-sm {
+  min-height: 36px;
+  height: 36px;
+  padding: 0 14px;
+  font-size: 10px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid rgba(232, 228, 216, 0.2);
+  background: transparent;
+  color: rgba(232, 228, 216, 0.9);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(232, 228, 216, 0.4);
+}
+

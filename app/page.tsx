@@ -86,8 +86,8 @@ export default function ObsidianTerminal() {
         href="https://app.krypswift.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed top-8 right-6 md:right-16 z-20 flex items-center gap-1.5 font-mono text-[10px] tracking-widest border border-[rgba(0,240,255,0.25)] text-[#00F0FF]/70 px-3.5 bg-[#0A0A0C]/50 backdrop-blur-md hover:border-[rgba(0,240,255,0.5)] hover:text-[#00F0FF] transition-all duration-300"
-        style={{ height: '36px' }}
+        className="btn-primary btn-primary-sm fixed top-8 right-6 md:right-16 z-20 backdrop-blur-md"
+        style={{ background: 'rgba(10, 10, 12, 0.5)' }}
       >
         Portal →
       </a>
@@ -185,7 +185,7 @@ export default function ObsidianTerminal() {
           </div>
 
           {/* Mobile: full-bleed bottom panel */}
-          <div className="absolute bottom-0 left-0 w-full h-[60%] flex flex-col justify-center px-6 pb-10 pt-8 z-10 hud-scrim-mask md:hidden">
+          <div className="absolute bottom-0 left-0 w-full flex flex-col justify-center px-6 pb-6 pt-4 z-10 hud-scrim-mask md:hidden" style={{ height: '84%' }}>
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 2 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(26px, 7vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
@@ -195,8 +195,30 @@ export default function ObsidianTerminal() {
             <p className="mt-4 max-w-sm text-[13px] font-light tracking-wider text-neutral-400 leading-relaxed">
               A 10% monthly emission stream routed directly to public infrastructure. Programmed by contract, verified by consensus — 50 years of continuous ecosystem growth.
             </p>
-            <div className="mt-6 font-mono text-[9px] tracking-[0.25em] text-[#00F0FF]/35 uppercase">
+            <div className="mt-4 font-mono text-[9px] tracking-[0.25em] text-[#00F0FF]/35 uppercase">
               10% monthly → Public Goods Vault
+            </div>
+
+            {/* Status panel — visible on mobile below body copy */}
+            <div className="mt-4 border border-[rgba(0,240,255,0.2)] bg-[rgba(0,18,28,0.6)]">
+              <div className="font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase px-3 pt-3 pb-2">
+                Public Goods · outflow status
+              </div>
+              <div className="px-3 pb-3">
+                {([
+                  ['Status',         'Active'],
+                  ['Monthly sweep',  '10%'],
+                  ['Vault target',   'Public Goods Fund'],
+                  ['Governance',     'DAO nominated'],
+                  ['Whitelist gate', 'On-chain DAO'],
+                  ['Release cycle',  'Annual'],
+                ] as [string, string][]).map(([key, val]) => (
+                  <div key={key} className="flex justify-between items-baseline py-1.5 border-b border-[rgba(255,255,255,0.04)] last:border-0">
+                    <span className="font-mono text-[11px] tracking-[0.08em] text-neutral-500">{key}</span>
+                    <span className="font-mono text-[11px] tracking-[0.08em] text-[#00F0FF]/70">{val}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -283,34 +305,47 @@ export default function ObsidianTerminal() {
             </p>
           </div>
 
-          {/* Desktop: grid + text in left column (unchanged) */}
-          <div className="hidden md:flex absolute left-[8%] top-1/2 -translate-y-1/2 w-[52%] flex-col justify-center z-10">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(20, 14px)', gap: '4px' }}>
-              {ALLOCATION_SQUARES.map((i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: '14px',
-                    height: '14px',
-                    backgroundColor: '#00F0FF',
-                    opacity: 0.12,
-                    border: '1px solid rgba(0,240,255,0.08)',
-                  }}
-                />
-              ))}
+          {/* Desktop: two-column — LEFT: text, RIGHT: grid */}
+          <div
+            className="hidden md:flex absolute inset-x-0 flex-row items-center gap-16 px-16 z-10"
+            style={{ top: '80px', bottom: '72px' }}
+          >
+            {/* LEFT column */}
+            <div className="flex-1 flex flex-col justify-center">
+              <h2
+                className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 3 ? 'active' : ''}`}
+                style={{ fontSize: 'clamp(26px, 3.5vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
+              >
+                The Evolution Catalyst:<br />Community Innovation Fund
+              </h2>
+              <p className="mt-5 text-[14px] font-light tracking-wider text-neutral-400 leading-relaxed" style={{ maxWidth: '38ch' }}>
+                10,000,000 KPS committed to ecosystem builders. Competitive selection model. Protected by a 180-day initial dormancy phase.
+              </p>
+              <div className="mt-5 font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase">
+                200 allocations · pre-launch
+              </div>
             </div>
-            <div className="font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase mt-3 mb-6">
-              200 allocations · pre-launch
+
+            {/* RIGHT column — grid */}
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(20, 14px)', gap: '4px' }}>
+                {ALLOCATION_SQUARES.map((i) => (
+                  <div
+                    key={i}
+                    style={{
+                      width: '14px',
+                      height: '14px',
+                      backgroundColor: '#00F0FF',
+                      opacity: 0.12,
+                      border: '1px solid rgba(0,240,255,0.08)',
+                    }}
+                  />
+                ))}
+              </div>
+              <div className="font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase mt-3">
+                200 allocations · pre-launch
+              </div>
             </div>
-            <h2
-              className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 3 ? 'active' : ''}`}
-              style={{ fontSize: 'clamp(26px, 7vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
-            >
-              The Evolution Catalyst:<br />Community Innovation Fund
-            </h2>
-            <p className="mt-4 max-w-xs text-[13px] font-light tracking-wider text-neutral-400 leading-relaxed">
-              10,000,000 KPS committed to ecosystem builders. Competitive selection model. Protected by a 180-day initial dormancy phase.
-            </p>
           </div>
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 hidden md:block">
@@ -322,8 +357,9 @@ export default function ObsidianTerminal() {
         <section id="portal" className="relative w-full h-screen flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={5} />
 
-          <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
-            <p className="font-mono text-[9px] md:text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
+          {/* Mobile-only eyebrow — desktop eyebrow is inside the centered column */}
+          <div className="absolute top-8 left-6 z-10 pt-4 overflow-hidden max-w-[55%] md:hidden">
+            <p className="font-mono text-[9px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
               [ Horizon · 600 months ]
             </p>
           </div>
@@ -373,8 +409,8 @@ export default function ObsidianTerminal() {
                 href="https://app.krypswift.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center border border-[rgba(0,240,255,0.4)] text-[#00F0FF] font-mono text-[10px] uppercase tracking-[0.15em] transition-all duration-300 hover:border-[#00F0FF] hover:bg-[rgba(0,240,255,0.05)] w-full"
-                style={{ height: '48px' }}
+                className="btn-primary"
+                style={{ width: '100%', height: '48px', minHeight: '48px' }}
               >
                 Access portal
               </a>
@@ -382,8 +418,8 @@ export default function ObsidianTerminal() {
                 href="/whitepaper.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center border border-[rgba(255,255,255,0.12)] text-neutral-400 hover:text-white font-mono text-[10px] uppercase tracking-[0.15em] transition-all duration-300 hover:border-[rgba(0,240,255,0.3)] w-full"
-                style={{ height: '48px' }}
+                className="btn-secondary"
+                style={{ width: '100%', height: '48px', minHeight: '48px' }}
               >
                 Whitepaper
               </a>
@@ -391,8 +427,8 @@ export default function ObsidianTerminal() {
                 href="/constitution.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center border border-[rgba(255,255,255,0.12)] text-neutral-400 hover:text-white font-mono text-[10px] uppercase tracking-[0.15em] transition-all duration-300 hover:border-[rgba(0,240,255,0.3)] w-full"
-                style={{ height: '48px' }}
+                className="btn-secondary"
+                style={{ width: '100%', height: '48px', minHeight: '48px' }}
               >
                 Constitution
               </a>
@@ -429,11 +465,16 @@ export default function ObsidianTerminal() {
             </div>
           </div>
 
-          {/* ── Desktop: left column ── */}
-          <div className="hidden md:flex absolute left-[8%] top-1/2 -translate-y-1/2 w-[52%] flex-col justify-center z-10">
+          {/* ── Desktop: fully centered vertical stack ── */}
+          <div className="hidden md:flex absolute inset-0 flex-col items-center justify-center z-10 px-8">
 
-            {/* Timeline */}
-            <div className="relative mb-8" style={{ height: '52px', maxWidth: '480px', width: '100%' }}>
+            {/* 1. Eyebrow */}
+            <p className="font-mono text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase">
+              [ Horizon · 600 months ]
+            </p>
+
+            {/* 2. Timeline — 80% viewport width, centered */}
+            <div className="relative mt-10" style={{ width: '80%', maxWidth: '800px', height: '52px' }}>
               <div className="absolute left-0 right-0 h-px bg-[rgba(0,240,255,0.2)]" style={{ top: '6px' }} />
               {TIMELINE_MARKERS.map(({ year, pct, align, label }) => (
                 <div
@@ -458,49 +499,34 @@ export default function ObsidianTerminal() {
               ))}
             </div>
 
+            {/* 3. Headline — centered */}
             <h2
-              className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 4 ? 'active' : ''}`}
-              style={{ fontSize: 'clamp(26px, 7vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
+              className={`mt-8 font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] text-center kinetic-reveal ${activeSection === 4 ? 'active' : ''}`}
+              style={{ fontSize: 'clamp(26px, 7vw, 72px)', textWrap: 'balance' } as React.CSSProperties}
             >
               600 Months.<br />One Promise.
             </h2>
-            <p className="mt-4 max-w-xs text-[13px] font-light tracking-wider text-neutral-400 leading-relaxed">
+
+            {/* 4. Body copy — centered, max 600px */}
+            <p className="mt-5 text-[14px] font-light tracking-wider text-neutral-400 leading-relaxed text-center" style={{ maxWidth: '600px' }}>
               Native omnichain architecture with a strict 1% wallet cap. Autonomous distribution network. Zero protocol fees.
             </p>
 
-            {/* CTAs — same height, same border */}
-            <div className="mt-8 flex flex-row items-start gap-2">
-              <a
-                href="https://app.krypswift.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center border border-[rgba(0,240,255,0.4)] text-[#00F0FF] font-mono text-[10px] uppercase tracking-[0.15em] transition-all duration-300 hover:border-[#00F0FF] hover:bg-[rgba(0,240,255,0.05)] px-6"
-                style={{ height: '48px' }}
-              >
+            {/* 5. CTAs — horizontal row, centered, gap-3 */}
+            <div className="mt-10 flex flex-row items-center gap-3">
+              <a href="https://app.krypswift.com" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Access portal
               </a>
-              <a
-                href="/whitepaper.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center border border-[rgba(255,255,255,0.12)] text-neutral-400 hover:text-white font-mono text-[10px] uppercase tracking-[0.15em] transition-all duration-300 hover:border-[rgba(0,240,255,0.3)] px-6"
-                style={{ height: '48px' }}
-              >
+              <a href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">
                 Whitepaper
               </a>
-              <a
-                href="/constitution.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center border border-[rgba(255,255,255,0.12)] text-neutral-400 hover:text-white font-mono text-[10px] uppercase tracking-[0.15em] transition-all duration-300 hover:border-[rgba(0,240,255,0.3)] px-6"
-                style={{ height: '48px' }}
-              >
+              <a href="/constitution.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">
                 Constitution
               </a>
             </div>
 
-            {/* Social links */}
-            <div className="mt-6 flex flex-row items-center gap-2">
+            {/* 6. Social icons — centered row, gap-6 */}
+            <div className="mt-8 flex flex-row items-center justify-center gap-6">
               {SOCIAL_LINKS.map(({ href, label, icon }) => (
                 <a
                   key={label}
@@ -508,23 +534,24 @@ export default function ObsidianTerminal() {
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={label}
-                  className="flex items-center justify-center w-10 h-10 border border-[rgba(255,255,255,0.12)] text-neutral-500 hover:text-[#00F0FF] hover:border-[rgba(0,240,255,0.4)] transition-all duration-300"
+                  className="flex items-center justify-center text-neutral-500 hover:text-[#00F0FF] transition-colors duration-300"
+                  style={{ width: '44px', height: '44px' }}
                 >
                   {icon}
                 </a>
               ))}
             </div>
 
-            {/* Deployer wallet — Article XI */}
+            {/* 7. Deployer wallet — Article XI, centered */}
             <div
-              className="mt-5 font-mono text-[10px] tracking-[0.12em]"
+              className="mt-6 text-center font-mono text-[10px] tracking-[0.12em]"
               style={{ color: 'rgba(255,255,255,0.28)' }}
             >
               Deployer · 0x000...000
             </div>
 
-            {/* Final statement */}
-            <div className="mt-1.5 font-mono text-[9px] tracking-[0.18em] text-neutral-600 uppercase">
+            {/* 8. Final statement — centered */}
+            <div className="mt-2 text-center font-mono text-[9px] tracking-[0.18em] text-neutral-600 uppercase">
               Twelve Articles. One Promise.
             </div>
           </div>

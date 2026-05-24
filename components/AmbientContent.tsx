@@ -23,7 +23,7 @@ function glyphPositions(actIndex: number, count: number): Array<{ x: number; y: 
 
     // Four corner zones — avoids central headline/CTA area
     switch (zone) {
-      case 0: x = 4  + r2 * 14; y = 6  + r3 * 16; break; // top-left (below eyebrow)
+      case 0: x = 64 + r2 * 16; y = 6  + r3 * 16; break; // top-right (avoids top-left eyebrow)
       case 1: x = 20 + r2 * 42; y = 4  + r3 * 14; break; // top-center
       case 2: x = 4  + r2 * 12; y = 78 + r3 * 14; break; // bottom-left corner
       default: x = 80 + r2 * 14; y = 76 + r3 * 16; break; // bottom-right corner
@@ -43,7 +43,7 @@ export default function AmbientContent({ act }: AmbientContentProps) {
   const key: AmbientAct = `act${act}`;
   const strings = ambientContent[key];
 
-  if (!strings || strings.length === 0) return null;
+  if (!strings) return null;
 
   const positions = glyphPositions(act, strings.length);
 
@@ -67,7 +67,7 @@ export default function AmbientContent({ act }: AmbientContentProps) {
               position: 'absolute',
               left: `${pos.x}%`,
               top: `${pos.y}%`,
-              fontFamily: "'JetBrains Mono', 'Noto Sans Mono', 'system-ui', monospace",
+              fontFamily: "'Noto Sans Mono', 'JetBrains Mono', 'Segoe UI Symbol', 'Apple Symbols', system-ui, monospace",
               fontSize: '11px',
               color: '#00F0FF',
               opacity: 0.07,
