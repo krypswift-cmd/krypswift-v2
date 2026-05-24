@@ -200,7 +200,7 @@ export default function ObsidianTerminal() {
             </div>
 
             {/* Status panel — visible on mobile below body copy */}
-            <div className="mt-4 border border-[rgba(0,240,255,0.2)] bg-[rgba(0,18,28,0.6)]">
+            <div className="mt-7 border border-[rgba(0,240,255,0.2)] bg-[rgba(0,18,28,0.6)]">
               <div className="font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase px-3 pt-3 pb-2">
                 Public Goods · outflow status
               </div>
@@ -260,7 +260,7 @@ export default function ObsidianTerminal() {
             </div>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 block">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[9px] tracking-[0.15em] text-[#E5E5E5]/20 uppercase z-10 block whitespace-nowrap">
             [ Section 03 · Public Goods ]
           </div>
         </section>
