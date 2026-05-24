@@ -35,8 +35,8 @@ function SceneContent({ activeSection, scrollProgress }: BackgroundProps) {
         angle: Math.random() * Math.PI * 2,
         radius: 2 + Math.random() * 28, // initial spread radius from Y-axis
         y: (Math.random() - 0.5) * 35,   // vertical altitude along Y-axis
-        orbitSpeed: 0.15 + Math.random() * 0.35, // orbital speed
-        driftSpeed: 0.05 + Math.random() * 0.15, // inward drift velocity
+        orbitSpeed: 0.08 + Math.random() * 0.18, // orbital speed
+        driftSpeed: 0.025 + Math.random() * 0.08, // inward drift velocity
       });
     }
     return list;
@@ -55,7 +55,7 @@ function SceneContent({ activeSection, scrollProgress }: BackgroundProps) {
       list.push({
         angle: Math.random() * Math.PI * 2,
         radius: Math.random() * 15, // pre-spread radius for seamless visual start
-        speed: 0.04 + Math.random() * 0.08, // radial expansion speed
+        speed: 0.022 + Math.random() * 0.045, // radial expansion speed
       });
     }
     return list;
@@ -347,8 +347,8 @@ function SceneContent({ activeSection, scrollProgress }: BackgroundProps) {
       for (let i = 0; i < particleCount; i++) {
         const p = particles[i];
 
-        p.angle += p.orbitSpeed * 0.01;
-        p.radius -= p.driftSpeed * 0.015;
+        p.angle += p.orbitSpeed * 0.007;
+        p.radius -= p.driftSpeed * 0.010;
 
         if (p.radius < 0.15) {
           p.radius = 20 + Math.random() * 10;
