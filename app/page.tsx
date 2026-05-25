@@ -77,7 +77,7 @@ export default function ObsidianTerminal() {
   };
 
   return (
-    <main className="relative w-full h-screen overflow-hidden bg-black select-none">
+    <main className="relative w-full h-dvh overflow-hidden bg-black select-none">
 
       <ObsidianBackground activeSection={activeSection} scrollProgress={scrollProgress} />
 
@@ -95,7 +95,7 @@ export default function ObsidianTerminal() {
       <div className="scroll-container" onScroll={handleScroll}>
 
         {/* ── ACT I: The Awakening — Hero ── */}
-        <section className="relative w-full h-screen flex flex-col justify-between bg-transparent overflow-hidden">
+        <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent overflow-hidden">
           <AmbientContent act={1} />
 
           <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
@@ -124,7 +124,7 @@ export default function ObsidianTerminal() {
         </section>
 
         {/* ── ACT II: The Pulse — Number-led layout ── */}
-        <section className="relative w-full h-screen flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
+        <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={2} />
 
           <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
@@ -175,7 +175,7 @@ export default function ObsidianTerminal() {
         </section>
 
         {/* ── ACT III: The Outflow — Split layout (desktop) / stacked (mobile) ── */}
-        <section className="relative w-full h-screen flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
+        <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={3} />
 
           <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
@@ -270,7 +270,7 @@ export default function ObsidianTerminal() {
         </section>
 
         {/* ── ACT IV: The Blueprint — 200-square allocation grid ── */}
-        <section className="relative w-full h-screen flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
+        <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={4} />
 
           <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
@@ -282,7 +282,7 @@ export default function ObsidianTerminal() {
           {/* Mobile: grid top-right, text bottom-left */}
           <div
             className="md:hidden absolute z-10"
-            style={{ top: '76px', right: '44px', width: '200px' }}
+            style={{ top: '76px', right: '16px', width: '248px' }}
           >
             <div className="grid-200-mobile">
               {ALLOCATION_SQUARES.map((i) => (
@@ -358,7 +358,7 @@ export default function ObsidianTerminal() {
         </section>
 
         {/* ── ACT V: The Gateway — Horizontal 50-year timeline ── */}
-        <section id="portal" className="relative w-full h-screen flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
+        <section id="portal" className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={5} />
 
           {/* Mobile-only eyebrow — desktop eyebrow is inside the centered column */}

@@ -55,7 +55,7 @@ html, body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   z-index: 0;
   pointer-events: none;
 }
@@ -64,7 +64,7 @@ html, body {
 .scroll-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -127,20 +127,20 @@ html, body {
 
 @media (max-width: 767px) {
   .ambient-glyph {
-    opacity: 0.18;
+    opacity: 0.08;
   }
 }
 
 /* Act IV — 200-cell allocation grid, mobile size (~62% of 380px viewport) */
 .grid-200-mobile {
   display: grid;
-  grid-template-columns: repeat(20, 8px);
+  grid-template-columns: repeat(20, 10px);
   gap: 2px;
 }
 
 .cell-200-mobile {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: #00F0FF;
   opacity: 0.12;
   border: 1px solid rgba(0, 240, 255, 0.08);
