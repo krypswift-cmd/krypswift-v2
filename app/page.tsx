@@ -111,7 +111,7 @@ export default function ObsidianTerminal() {
             >
               The 50-Year<br />Sovereign Engine
             </h1>
-            <p className="mt-4 max-w-sm text-[13px] md:text-[14px] font-light tracking-wider text-neutral-400 leading-relaxed">
+            <p className="mt-4 max-w-sm text-[17px] md:text-[18px] font-light tracking-wider text-neutral-400 leading-[1.6]">
               Built for absolute resilience. Zero protocol fees. Governed by an immutable constitution and powered by a fixed supply of 50,000,000 KPS.
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function ObsidianTerminal() {
               ].map((chip) => (
                 <span
                   key={chip}
-                  className="font-mono text-[9px] tracking-[0.15em] text-[#00F0FF]/50 border border-[rgba(0,240,255,0.12)] px-2.5 py-1 whitespace-nowrap"
+                  className="font-mono text-[13px] tracking-[0.15em] text-[#00F0FF]/50 border border-[rgba(0,240,255,0.12)] px-2.5 py-1 whitespace-nowrap"
                 >
                   {chip}
                 </span>
@@ -164,7 +164,7 @@ export default function ObsidianTerminal() {
             >
               Hold to Level Up
             </h2>
-            <p className="mt-4 max-w-xs text-[13px] font-light tracking-wider text-neutral-400 leading-relaxed">
+            <p className="mt-4 max-w-xs text-[17px] md:text-[18px] font-light tracking-wider text-neutral-400 leading-[1.6]">
               Commit KPS to secure the network. Unlock randomised, VRF-verified bonus rewards — strict 29-day claim window, principal always returned.
             </p>
           </div>
@@ -192,7 +192,7 @@ export default function ObsidianTerminal() {
             >
               Structural Impact:<br />Automated Public Goods
             </h2>
-            <p className="mt-4 max-w-sm text-[13px] font-light tracking-wider text-neutral-400 leading-relaxed">
+            <p className="mt-4 max-w-sm text-[17px] font-light tracking-wider text-neutral-400 leading-[1.6]">
               A 10% monthly emission stream routed directly to public infrastructure. Programmed by contract, verified by consensus — 50 years of continuous ecosystem growth.
             </p>
             <div className="mt-4 font-mono text-[9px] tracking-[0.25em] text-[#00F0FF]/35 uppercase">
@@ -217,8 +217,8 @@ export default function ObsidianTerminal() {
                     ['Release cycle',  'Annual'],
                   ] as [string, string][]).map(([key, val]) => (
                     <div key={key} className="flex justify-between items-baseline py-1.5 border-b border-[rgba(255,255,255,0.04)] last:border-0">
-                      <span className="font-mono text-[11px] tracking-[0.08em] text-neutral-500">{key}</span>
-                      <span className="font-mono text-[11px] tracking-[0.08em] text-[#00F0FF]/70">{val}</span>
+                      <span className="font-mono text-[14px] tracking-[0.08em] text-neutral-500">{key}</span>
+                      <span className="font-mono text-[14px] tracking-[0.08em] text-[#00F0FF]/70">{val}</span>
                     </div>
                   ))}
                 </div>
@@ -234,7 +234,7 @@ export default function ObsidianTerminal() {
             >
               Structural Impact:<br />Automated Public Goods
             </h2>
-            <p className="mt-4 max-w-sm text-[14px] font-light tracking-wider text-neutral-400 leading-relaxed">
+            <p className="mt-4 max-w-sm text-[18px] font-light tracking-wider text-neutral-400 leading-[1.6]">
               A 10% monthly emission stream routed directly to public infrastructure. Programmed by contract, verified by consensus — 50 years of continuous ecosystem growth.
             </p>
             <div className="mt-6 font-mono text-[9px] tracking-[0.25em] text-[#00F0FF]/35 uppercase">
@@ -257,8 +257,8 @@ export default function ObsidianTerminal() {
                 ['Release cycle',  'Annual'],
               ] as [string, string][]).map(([key, val]) => (
                 <div key={key} className="flex justify-between items-baseline py-2 border-b border-[rgba(255,255,255,0.04)] last:border-0">
-                  <span className="font-mono text-[10px] tracking-[0.1em] text-neutral-500">{key}</span>
-                  <span className="font-mono text-[10px] tracking-[0.1em] text-[#00F0FF]/70">{val}</span>
+                  <span className="font-mono text-[15px] tracking-[0.1em] text-neutral-500">{key}</span>
+                  <span className="font-mono text-[15px] tracking-[0.1em] text-[#00F0FF]/70">{val}</span>
                 </div>
               ))}
             </div>
@@ -304,7 +304,7 @@ export default function ObsidianTerminal() {
             >
               The Evolution Catalyst:<br />Community Innovation Fund
             </h2>
-            <p className="mt-3 text-[12px] font-light tracking-wider text-neutral-400 leading-relaxed" style={{ maxWidth: '34ch' }}>
+            <p className="mt-3 text-[17px] font-light tracking-wider text-neutral-400 leading-[1.6]" style={{ maxWidth: '34ch' }}>
               10,000,000 KPS committed to ecosystem builders. Competitive selection model. Protected by a 180-day initial dormancy phase.
             </p>
           </div>
@@ -322,7 +322,7 @@ export default function ObsidianTerminal() {
               >
                 The Evolution Catalyst:<br />Community Innovation Fund
               </h2>
-              <p className="mt-5 text-[14px] font-light tracking-wider text-neutral-400 leading-relaxed" style={{ maxWidth: '38ch' }}>
+              <p className="mt-5 text-[18px] font-light tracking-wider text-neutral-400 leading-[1.6]" style={{ maxWidth: '38ch' }}>
                 10,000,000 KPS committed to ecosystem builders. Competitive selection model. Protected by a 180-day initial dormancy phase.
               </p>
               <div className="mt-5 font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase">
@@ -387,10 +387,10 @@ export default function ObsidianTerminal() {
                   }}
                 >
                   <div className="rounded-full bg-[#00F0FF]" style={{ width: '6px', height: '6px', opacity: 0.8 }} />
-                  <div className="font-mono text-[7px] tracking-widest mt-1.5" style={{ color: 'rgba(0,240,255,0.55)', whiteSpace: 'nowrap' }}>
+                  <div className="font-mono text-[12px] tracking-widest mt-1.5" style={{ color: 'rgba(0,240,255,0.55)', whiteSpace: 'nowrap' }}>
                     Yr {year}
                   </div>
-                  <div className="font-mono text-[6px] tracking-[0.1em] mt-0.5" style={{ color: 'rgba(0,240,255,0.28)', whiteSpace: 'nowrap' }}>
+                  <div className="font-mono text-[12px] tracking-[0.1em] mt-0.5" style={{ color: 'rgba(0,240,255,0.28)', whiteSpace: 'nowrap' }}>
                     {label}
                   </div>
                 </div>
@@ -403,7 +403,7 @@ export default function ObsidianTerminal() {
             >
               600 Months.<br />One Promise.
             </h2>
-            <p className="mt-3 text-[13px] font-light tracking-wider text-neutral-400 leading-relaxed" style={{ maxWidth: '34ch' }}>
+            <p className="mt-3 text-[17px] font-light tracking-wider text-neutral-400 leading-[1.6]" style={{ maxWidth: '34ch' }}>
               Native omnichain architecture with a strict 1% wallet cap. Autonomous distribution network. Zero protocol fees.
             </p>
 
@@ -493,10 +493,10 @@ export default function ObsidianTerminal() {
                   }}
                 >
                   <div className="rounded-full bg-[#00F0FF]" style={{ width: '7px', height: '7px', opacity: 0.8 }} />
-                  <div className="font-mono text-[8px] tracking-widest mt-1.5" style={{ color: 'rgba(0,240,255,0.55)', whiteSpace: 'nowrap' }}>
+                  <div className="font-mono text-[13px] tracking-widest mt-1.5" style={{ color: 'rgba(0,240,255,0.55)', whiteSpace: 'nowrap' }}>
                     Yr {year}
                   </div>
-                  <div className="font-mono text-[7px] tracking-[0.12em] mt-0.5" style={{ color: 'rgba(0,240,255,0.28)', whiteSpace: 'nowrap' }}>
+                  <div className="font-mono text-[13px] tracking-[0.12em] mt-0.5" style={{ color: 'rgba(0,240,255,0.28)', whiteSpace: 'nowrap' }}>
                     {label}
                   </div>
                 </div>
@@ -512,7 +512,7 @@ export default function ObsidianTerminal() {
             </h2>
 
             {/* 4. Body copy — centered, max 600px */}
-            <p className="mt-5 text-[14px] font-light tracking-wider text-neutral-400 leading-relaxed text-center" style={{ maxWidth: '600px' }}>
+            <p className="mt-5 text-[18px] font-light tracking-wider text-neutral-400 leading-[1.6] text-center" style={{ maxWidth: '600px' }}>
               Native omnichain architecture with a strict 1% wallet cap. Autonomous distribution network. Zero protocol fees.
             </p>
 

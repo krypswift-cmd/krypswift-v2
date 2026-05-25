@@ -471,7 +471,7 @@ function SceneContent({ activeSection, scrollProgress }: BackgroundProps) {
           size={0.12}
           sizeAttenuation={true}
           transparent={true}
-          opacity={0.7}
+          opacity={0.28}
           blending={THREE.AdditiveBlending}
         />
       </points>
