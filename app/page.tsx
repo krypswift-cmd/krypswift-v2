@@ -8,6 +8,7 @@
 
 import { useState, UIEvent } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import AmbientContent from '@/components/AmbientContent';
 
 const ObsidianBackground = dynamic(
@@ -114,6 +115,11 @@ export default function ObsidianTerminal() {
             <p className="mt-4 max-w-sm text-[14px] md:text-[15px] font-light tracking-wider text-neutral-400 leading-[1.6]">
               Built for absolute resilience. Zero protocol fees. Governed by an immutable constitution and powered by a fixed supply of 50,000,000 KPS.
             </p>
+            <div className="mt-6">
+              <Link href="/verify" className="btn-primary btn-primary-sm">
+                Read the Code
+              </Link>
+            </div>
           </div>
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center animate-pulse z-10 block">
