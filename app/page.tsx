@@ -408,7 +408,7 @@ export default function ObsidianTerminal() {
             </p>
 
             {/* Spacer — breathing room between body copy and buttons */}
-            <div style={{ height: '40px' }} />
+            <div style={{ height: '100px' }} />
 
             {/* CTAs — stacked, full-width, 48px */}
             <div className="flex flex-col gap-2 w-full">
