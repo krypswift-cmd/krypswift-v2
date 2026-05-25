@@ -407,8 +407,11 @@ export default function ObsidianTerminal() {
               Native omnichain architecture with a strict 1% wallet cap. Autonomous distribution network. Zero protocol fees.
             </p>
 
+            {/* Spacer — breathing room between body copy and buttons */}
+            <div style={{ height: '40px' }} />
+
             {/* CTAs — stacked, full-width, 48px */}
-            <div className="mt-10 flex flex-col gap-2 w-full">
+            <div className="flex flex-col gap-2 w-full">
               <a
                 href="https://app.krypswift.com"
                 target="_blank"
@@ -517,7 +520,7 @@ export default function ObsidianTerminal() {
             </p>
 
             {/* 5. CTAs — horizontal row, centered, gap-3 */}
-            <div className="mt-10 flex flex-row items-center gap-3">
+            <div className="mt-12 flex flex-row items-center gap-3">
               <a href="https://app.krypswift.com" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Access portal
               </a>
