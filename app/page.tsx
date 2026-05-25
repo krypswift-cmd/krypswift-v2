@@ -408,7 +408,7 @@ export default function ObsidianTerminal() {
             </p>
 
             {/* CTAs — stacked, full-width, 48px */}
-            <div className="mt-5 flex flex-col gap-2 w-full">
+            <div className="mt-10 flex flex-col gap-2 w-full">
               <a
                 href="https://app.krypswift.com"
                 target="_blank"
