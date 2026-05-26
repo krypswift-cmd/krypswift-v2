@@ -99,7 +99,7 @@ export default function ObsidianTerminal() {
         <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent overflow-hidden">
           <AmbientContent act={1} />
 
-          <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
+          <div className="section-eyebrow absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
             <p className="font-mono text-[9px] md:text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
               [ KrypSwift · Base · 8453 ]
             </p>
@@ -133,7 +133,7 @@ export default function ObsidianTerminal() {
         <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={2} />
 
-          <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
+          <div className="section-eyebrow absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
             <p className="font-mono text-[9px] md:text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
               [ Bonus rewards · VRF 2.5 ]
             </p>
@@ -141,7 +141,7 @@ export default function ObsidianTerminal() {
 
           <div className="absolute bottom-0 left-0 w-full h-[64%] md:h-auto md:w-[44%] md:left-[8%] md:top-1/2 md:-translate-y-1/2 flex flex-col justify-center px-6 pb-10 pt-8 md:p-0 z-10 hud-scrim-mask">
             {/* Dominant number */}
-            <span className="font-mono leading-none font-light text-[#00F0FF] tracking-tight" style={{ fontSize: 'clamp(3.5rem, 16vw, 6.5rem)' }}>
+            <span className="act-ii-number font-mono leading-none font-light text-[#00F0FF] tracking-tight" style={{ fontSize: 'clamp(3.5rem, 16vw, 6.5rem)' }}>
               16,666
             </span>
             <span className="font-mono text-[10px] tracking-[0.3em] text-[#00F0FF]/50 uppercase mt-2 mb-6">
@@ -184,7 +184,7 @@ export default function ObsidianTerminal() {
         <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={3} />
 
-          <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
+          <div className="section-eyebrow absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
             <p className="font-mono text-[9px] md:text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
               [ Public Goods · 10% ]
             </p>
@@ -279,7 +279,7 @@ export default function ObsidianTerminal() {
         <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={4} />
 
-          <div className="absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
+          <div className="section-eyebrow absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
             <p className="font-mono text-[9px] md:text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
               [ Community Fund · 200 ]
             </p>
@@ -479,7 +479,7 @@ export default function ObsidianTerminal() {
           </div>
 
           {/* ── Desktop: fully centered vertical stack ── */}
-          <div className="hidden md:flex absolute inset-0 flex-col items-center justify-center z-10 px-8">
+          <div className="act-v-desktop-col hidden md:flex absolute inset-0 flex-col items-center justify-center z-10 px-8">
 
             {/* 1. Eyebrow */}
             <p className="font-mono text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase">

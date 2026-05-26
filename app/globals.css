@@ -204,3 +204,44 @@ html, body {
   border-color: rgba(232, 228, 216, 0.4);
 }
 
+/* ── Landscape Mobile Fixes ──────────────────────────────────────────────── */
+/* Targets phones in landscape (~900×400px). Desktop height > 600px so it
+   is never affected. Portrait mobile uses orientation:portrait so also safe. */
+@media (orientation: landscape) and (max-height: 600px) {
+
+  /* Pull eyebrow labels back to mobile positions — in md: they sit at
+     top:64px + pt:32px = 96px, eating into the centred content blocks */
+  .section-eyebrow {
+    top: 8px !important;
+    left: 24px !important;
+    padding-top: 4px !important;
+  }
+
+  /* Act II dominant number: 104px is far too tall for a 407px viewport */
+  .act-ii-number {
+    font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
+  }
+
+  /* Buttons: reduce height so Act V CTAs consume less vertical space */
+  .btn-primary,
+  .btn-secondary {
+    min-height: 36px;
+    height: 36px;
+    padding: 0 14px;
+    font-size: 9px;
+  }
+
+  /* Act V desktop stack: ~603px tall in a 407px viewport.
+     Switch to top-aligned + allow scrolling, collapse all child margins. */
+  .act-v-desktop-col {
+    justify-content: flex-start !important;
+    padding-top: 12px !important;
+    padding-bottom: 8px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .act-v-desktop-col > * {
+    margin-top: 4px !important;
+  }
+}
+
