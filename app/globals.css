@@ -205,19 +205,40 @@ html, body {
 }
 
 /* ── Landscape Mobile Fixes ──────────────────────────────────────────────── */
-/* Targets phones in landscape (~900×400px). Desktop height > 600px so it
-   is never affected. Portrait mobile uses orientation:portrait so also safe. */
+/* Targets phones in landscape (~900×400px max-height:600px).
+   max-width:1024px excludes desktop/laptop browsers entirely.
+   Portrait mobile uses orientation:portrait so is never affected. */
+
+/* Act I — landscape two-column split.
+   Default: landscape columns hidden, portrait/desktop block visible.
+   Landscape mobile: swap them. Uses left-[6%]/right-[5%] like all other desktop layouts. */
+.act-i-landscape-left,
+.act-i-landscape-right {
+  display: none;
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 1024px) {
+  .act-i-portrait-desktop {
+    display: none !important;
+  }
+  .act-i-landscape-left,
+  .act-i-landscape-right {
+    display: flex;
+  }
+}
+
+/* Remaining landscape fixes apply to all landscape-short viewports
+   (they were already here and the desktop comment still holds for height) */
 @media (orientation: landscape) and (max-height: 600px) {
 
-  /* Pull eyebrow labels back to mobile positions — in md: they sit at
-     top:64px + pt:32px = 96px, eating into the centred content blocks */
+  /* Pull eyebrow labels back to mobile positions */
   .section-eyebrow {
     top: 8px !important;
     left: 24px !important;
     padding-top: 4px !important;
   }
 
-  /* Act II dominant number: 104px is far too tall for a 407px viewport */
+  /* Act II dominant number: too tall for a ~400px viewport */
   .act-ii-number {
     font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
   }
@@ -231,8 +252,7 @@ html, body {
     font-size: 9px;
   }
 
-  /* Act V desktop stack: ~603px tall in a 407px viewport.
-     Switch to top-aligned + allow scrolling, collapse all child margins. */
+  /* Act V desktop stack: switch to top-aligned + allow scrolling */
   .act-v-desktop-col {
     justify-content: flex-start !important;
     padding-top: 12px !important;

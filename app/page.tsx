@@ -82,16 +82,25 @@ export default function ObsidianTerminal() {
 
       <ObsidianBackground activeSection={activeSection} scrollProgress={scrollProgress} />
 
-      {/* Portal CTA — top right, replaces UTC clock */}
-      <a
-        href="https://app.krypswift.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn-primary btn-primary-sm fixed top-8 right-6 md:right-16 z-20 backdrop-blur-md"
-        style={{ background: 'rgba(10, 10, 12, 0.5)' }}
-      >
-        Portal
-      </a>
+      {/* Top-right button pair — Portal + Read the Code */}
+      <div className="fixed top-8 right-6 md:right-16 z-20 flex flex-col md:flex-row gap-2">
+        <a
+          href="https://app.krypswift.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary btn-primary-sm backdrop-blur-md"
+          style={{ background: 'rgba(10, 10, 12, 0.5)', minWidth: '120px' }}
+        >
+          Portal
+        </a>
+        <Link
+          href="/verify"
+          className="btn-primary btn-primary-sm backdrop-blur-md"
+          style={{ background: 'rgba(10, 10, 12, 0.5)', minWidth: '120px' }}
+        >
+          Read the Code
+        </Link>
+      </div>
 
       <div className="scroll-container" onScroll={handleScroll}>
 
@@ -105,7 +114,8 @@ export default function ObsidianTerminal() {
             </p>
           </div>
 
-          <div className="absolute bottom-0 left-0 w-full h-[58%] md:h-auto md:w-[40%] md:left-[8%] md:top-1/2 md:-translate-y-1/2 flex flex-col justify-center px-6 pb-10 pt-8 md:p-0 z-10 hud-scrim-mask">
+          {/* Portrait + desktop layout */}
+          <div className="act-i-portrait-desktop absolute bottom-0 left-0 w-full h-[58%] md:h-auto md:w-[40%] md:left-[8%] md:top-1/2 md:-translate-y-1/2 flex flex-col justify-center px-6 pb-10 pt-8 md:p-0 z-10 hud-scrim-mask">
             <h1
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.05] tracking-[-0.02em] kinetic-reveal ${activeSection === 0 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(38px, 10vw, 72px)', textWrap: 'balance' } as React.CSSProperties}
@@ -115,11 +125,23 @@ export default function ObsidianTerminal() {
             <p className="mt-4 max-w-sm text-[14px] md:text-[15px] font-light tracking-wider text-neutral-400 leading-[1.6]">
               Built for absolute resilience. Zero protocol fees. Governed by an immutable constitution and powered by a fixed supply of 50,000,000 KPS.
             </p>
-            <div className="mt-6">
-              <Link href="/verify" className="btn-primary btn-primary-sm">
-                Read the Code
-              </Link>
-            </div>
+          </div>
+
+          {/* Landscape mobile — left column: headline */}
+          <div className="act-i-landscape-left absolute left-[6%] top-1/2 -translate-y-1/2 w-[42%] flex-col justify-center z-10">
+            <h1
+              className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.05] tracking-[-0.02em] kinetic-reveal ${activeSection === 0 ? 'active' : ''}`}
+              style={{ fontSize: 'clamp(26px, 6.5vw, 46px)', textWrap: 'balance' } as React.CSSProperties}
+            >
+              The 50-Year<br />Sovereign Engine
+            </h1>
+          </div>
+
+          {/* Landscape mobile — right column: body copy */}
+          <div className="act-i-landscape-right absolute right-[5%] top-1/2 -translate-y-1/2 w-[30%] flex-col justify-center z-10">
+            <p className="text-[12px] font-light tracking-wider text-neutral-400 leading-[1.55]">
+              Built for absolute resilience. Zero protocol fees. Governed by an immutable constitution and powered by a fixed supply of 50,000,000 KPS.
+            </p>
           </div>
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center animate-pulse z-10 block">
@@ -140,7 +162,7 @@ export default function ObsidianTerminal() {
           </div>
 
           {/* ── Mobile: top number + chips ── */}
-          <div className="md:hidden absolute left-6 right-6 z-10" style={{ top: '76px' }}>
+          <div className="md:hidden absolute left-6 right-6 z-10" style={{ top: '108px' }}>
             <span className="font-mono leading-none font-light text-[#00F0FF] tracking-tight block" style={{ fontSize: 'clamp(2.8rem, 13vw, 4.5rem)' }}>
               16,666
             </span>
@@ -150,7 +172,6 @@ export default function ObsidianTerminal() {
             <div className="flex flex-wrap gap-1.5">
               {[
                 '[ Milestone Pool · Accumulates Monthly ]',
-                '[ 6 Tiers · 1.5× → 5.0× ]',
                 '[ Claim Window · 29 Days ]',
                 '[ Wallet Cap · 1% ]',
               ].map((chip) => (
@@ -164,8 +185,8 @@ export default function ObsidianTerminal() {
             </div>
           </div>
 
-          {/* ── Mobile: bottom content — headline + description + tier rows ── */}
-          <div className="md:hidden absolute bottom-0 left-0 w-full flex flex-col px-6 pb-6 pt-4 z-10 hud-scrim-mask" style={{ height: '55%' }}>
+          {/* ── Mobile: headline + description — sits directly below 16,666 block ── */}
+          <div className="md:hidden absolute left-6 right-6 flex flex-col z-10" style={{ top: '223px' }}>
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.05] tracking-[-0.02em] kinetic-reveal ${activeSection === 1 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(19px, 5vw, 30px)', textWrap: 'balance' } as React.CSSProperties}
@@ -175,25 +196,27 @@ export default function ObsidianTerminal() {
             <p className="mt-2 text-[13px] font-light tracking-wider text-neutral-400 leading-[1.5]" style={{ maxWidth: '38ch' }}>
               Stake KPS to reach your tier. A Milestone Distribution Event opens when the protocol hits critical mass — your share weighted by commitment and duration. No randomness. Deterministic reward.
             </p>
-            <div className="mt-3 flex flex-col gap-1.5">
-              {([
-                { name: 'BRONZE', req: '90 days',  mult: '1.5× — 2.0×', accent: 'rgba(205,127,50,0.75)'  },
-                { name: 'SILVER', req: '180 days', mult: '2.5× — 3.0×', accent: 'rgba(192,192,192,0.65)' },
-                { name: 'GOLD',   req: '360 days', mult: '4.0× — 5.0×', accent: 'rgba(201,162,39,0.85)'  },
-              ] as { name: string; req: string; mult: string; accent: string }[]).map(({ name, req, mult, accent }) => (
-                <div
-                  key={name}
-                  className="flex items-center justify-between px-3 py-2 border border-[rgba(255,255,255,0.05)]"
-                  style={{ borderLeftColor: accent, borderLeftWidth: '2px' }}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-mono text-[10px] tracking-[0.14em] uppercase" style={{ color: accent }}>{name}</span>
-                    <span className="font-mono text-[8px] tracking-[0.08em] text-neutral-600">· {req}</span>
-                  </div>
-                  <span className="font-mono text-[10px] tracking-[0.04em] text-[#00F0FF]/65">{mult}</span>
+          </div>
+
+          {/* ── Mobile: tier rows — anchored below sphere ── */}
+          <div className="md:hidden absolute left-6 right-6 z-10 flex flex-col gap-1" style={{ top: '74%' }}>
+            {([
+              { name: 'BRONZE', req: '90 days',  mult: '1.5× — 2.0×', accent: 'rgba(205,127,50,0.75)'  },
+              { name: 'SILVER', req: '180 days', mult: '2.5× — 3.0×', accent: 'rgba(192,192,192,0.65)' },
+              { name: 'GOLD',   req: '360 days', mult: '4.0× — 5.0×', accent: 'rgba(201,162,39,0.85)'  },
+            ] as { name: string; req: string; mult: string; accent: string }[]).map(({ name, req, mult, accent }) => (
+              <div
+                key={name}
+                className="flex items-center justify-between px-2.5 py-1.5 border border-[rgba(255,255,255,0.05)]"
+                style={{ borderLeftColor: accent, borderLeftWidth: '2px' }}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[9px] tracking-[0.14em] uppercase" style={{ color: accent }}>{name}</span>
+                  <span className="font-mono text-[7px] tracking-[0.08em] text-neutral-600">· {req}</span>
                 </div>
-              ))}
-            </div>
+                <span className="font-mono text-[9px] tracking-[0.04em] text-[#00F0FF]/65">{mult}</span>
+              </div>
+            ))}
           </div>
 
           {/* ── Desktop: left column — number + chips + headline + description ── */}
@@ -201,13 +224,12 @@ export default function ObsidianTerminal() {
             <span className="act-ii-number font-mono leading-none font-light text-[#00F0FF] tracking-tight" style={{ fontSize: 'clamp(3.5rem, 9vw, 6rem)' }}>
               16,666
             </span>
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[#00F0FF]/50 uppercase mt-2 mb-5">
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[#00F0FF]/50 uppercase mt-2 mb-4">
               KPS / month
             </span>
             <div className="flex flex-wrap gap-2 mb-5">
               {[
                 '[ Milestone Pool · Accumulates Monthly ]',
-                '[ 6 Tiers · 1.5× → 5.0× ]',
                 '[ Claim Window · 29 Days ]',
                 '[ Wallet Cap · 1% ]',
               ].map((chip) => (
@@ -231,7 +253,7 @@ export default function ObsidianTerminal() {
           </div>
 
           {/* ── Desktop: right column — tier cards ── */}
-          <div className="hidden md:flex absolute right-[6%] top-1/2 -translate-y-1/2 w-[36%] flex-col gap-3 z-10">
+          <div className="hidden md:flex absolute right-[5%] top-1/2 -translate-y-1/2 w-[32%] flex-col gap-2 z-10">
             {([
               {
                 name: 'BRONZE',
@@ -260,7 +282,7 @@ export default function ObsidianTerminal() {
             ] as { name: string; req: string; mult: string; desc: string; accent: string; bg: string }[]).map(({ name, req, mult, desc, accent, bg }) => (
               <div
                 key={name}
-                className="border border-[rgba(255,255,255,0.06)] p-4"
+                className="border border-[rgba(255,255,255,0.06)] p-3"
                 style={{ borderTopColor: accent, borderTopWidth: '2px', background: bg }}
               >
                 <div className="flex items-baseline justify-between mb-2">
@@ -290,8 +312,8 @@ export default function ObsidianTerminal() {
             </p>
           </div>
 
-          {/* Mobile: text — floats just below eyebrow/portal row */}
-          <div className="md:hidden absolute left-0 right-0 px-6 z-10" style={{ top: '72px' }}>
+          {/* Mobile: text — positioned just above the sphere (sphere visual top ~40% of viewport) */}
+          <div className="md:hidden absolute left-0 right-0 px-6 z-10" style={{ top: 'max(72px, calc(40% - 190px))' }}>
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 2 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(26px, 7vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
