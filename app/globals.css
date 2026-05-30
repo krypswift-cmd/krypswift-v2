@@ -205,7 +205,7 @@ html, body {
 }
 
 /* ── Landscape Mobile Fixes ──────────────────────────────────────────────── */
-/* Targets phones in landscape (~900×400px). Desktop height > 600px so it
+/* Targets phones in landscape (~844×390px). Desktop height > 600px so it
    is never affected. Portrait mobile uses orientation:portrait so also safe. */
 @media (orientation: landscape) and (max-height: 600px) {
 
@@ -217,11 +217,6 @@ html, body {
     padding-top: 4px !important;
   }
 
-  /* Act II dominant number: 104px is far too tall for a 407px viewport */
-  .act-ii-number {
-    font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
-  }
-
   /* Buttons: reduce height so Act V CTAs consume less vertical space */
   .btn-primary,
   .btn-secondary {
@@ -231,8 +226,7 @@ html, body {
     font-size: 9px;
   }
 
-  /* Act V desktop stack: ~603px tall in a 407px viewport.
-     Switch to top-aligned + allow scrolling, collapse all child margins. */
+  /* Act V desktop stack: switch to top-aligned + allow scrolling */
   .act-v-desktop-col {
     justify-content: flex-start !important;
     padding-top: 12px !important;
@@ -242,6 +236,50 @@ html, body {
   }
   .act-v-desktop-col > * {
     margin-top: 4px !important;
+  }
+
+  /* ── Section label footers + corner HUDs — hide to clear bottom bar ── */
+  .section-label-footer,
+  .act-i-scroll-hint,
+  .corner-hud {
+    display: none !important;
+  }
+
+  /* ── Act I: Hero ─────────────────────────────────────────────────────── */
+  /* bottom-0 + md:top-1/2 constrains the block to 195px in a 390px
+     viewport, clipping the 72px headline. Revert to bottom-anchored. */
+  .act-i-content {
+    top: auto !important;
+    bottom: 0 !important;
+    height: auto !important;
+    transform: none !important;
+    padding: 16px 24px 24px !important;
+  }
+  .act-i-h1 {
+    font-size: clamp(20px, 4vw, 28px) !important;
+  }
+
+  /* ── Act II: Milestone Engine ────────────────────────────────────────── */
+  /* Desktop two-column layout overflows 390px height (~354px left,
+     ~414px right). Hide both desktop columns and the mobile blocks;
+     show the dedicated landscape single-column layout instead. */
+  .act-ii-mobile-top,
+  .act-ii-mobile-bottom,
+  .act-ii-desktop-left,
+  .act-ii-desktop-right {
+    display: none !important;
+  }
+  .act-ii-landscape {
+    display: flex !important;
+  }
+
+  /* ── Act V: CTAs ─────────────────────────────────────────────────────── */
+  /* Stack buttons vertically — three side-by-side buttons can collide
+     at short viewport heights even at 844px width. */
+  .act-v-cta-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
   }
 }
 
