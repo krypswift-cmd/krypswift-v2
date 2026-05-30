@@ -134,16 +134,43 @@ html, body {
 /* Act IV — 200-cell allocation grid, mobile size (~62% of 380px viewport) */
 .grid-200-mobile {
   display: grid;
-  grid-template-columns: repeat(20, 10px);
+  grid-template-columns: repeat(20, 12px);
   gap: 2px;
 }
 
 .cell-200-mobile {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background-color: #00F0FF;
   opacity: 0.12;
   border: 1px solid rgba(0, 240, 255, 0.08);
+}
+
+/* Act IV — 200-cell allocation grid, desktop size */
+.grid-200-desktop {
+  display: grid;
+  grid-template-columns: repeat(20, 16px);
+  gap: 4px;
+}
+
+.cell-200-desktop {
+  width: 16px;
+  height: 16px;
+  background-color: #00F0FF;
+  opacity: 0.12;
+  border: 1px solid rgba(0, 240, 255, 0.08);
+}
+
+/* Landscape phone only: shrink grid. max-width:1024px excludes real desktops. */
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 1024px) {
+  .grid-200-desktop {
+    grid-template-columns: repeat(20, 13px);
+    gap: 2px;
+  }
+  .cell-200-desktop {
+    width: 13px;
+    height: 13px;
+  }
 }
 
 /* ── Button System ─────────────────────────────────────────────────────────── */
@@ -227,8 +254,39 @@ html, body {
   }
 }
 
-/* Remaining landscape fixes apply to all landscape-short viewports
-   (they were already here and the desktop comment still holds for height) */
+/* Act IV — landscape two-column: text left, grid right, no sphere overlap */
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 1024px) {
+  /* Text: left column, vertically centered, no bottom-anchor */
+  .act-iv-mobile-text {
+    bottom: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+    width: 40% !important;
+    left: 6% !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Grid: right column, vertically centered, smaller cells to clear the sphere */
+  .act-iv-mobile-grid {
+    top: 50% !important;
+    right: 4% !important;
+    transform: translateY(-50%) !important;
+    width: auto !important;
+  }
+  .act-iv-mobile-grid .grid-200-mobile {
+    grid-template-columns: repeat(20, 7px);
+    gap: 1.5px;
+  }
+  .act-iv-mobile-grid .cell-200-mobile {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* General landscape fixes — eyebrow positions, Act II number, buttons.
+   No max-width guard needed; these are purely cosmetic size reductions. */
 @media (orientation: landscape) and (max-height: 600px) {
 
   /* Pull eyebrow labels back to mobile positions */
@@ -251,8 +309,10 @@ html, body {
     padding: 0 14px;
     font-size: 9px;
   }
+}
 
-  /* Act V desktop stack: switch to top-aligned + allow scrolling */
+/* Act V landscape phone only — max-width:1024px keeps desktop untouched */
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 1024px) {
   .act-v-desktop-col {
     justify-content: flex-start !important;
     padding-top: 12px !important;
@@ -262,6 +322,14 @@ html, body {
   }
   .act-v-desktop-col > * {
     margin-top: 4px !important;
+  }
+  /* Extra gap so headline clears the year labels */
+  .act-v-timeline-desktop {
+    margin-bottom: 18px !important;
+  }
+  /* Smaller headline so it doesn't crowd the layout */
+  .act-v-headline {
+    font-size: clamp(22px, 4.5vw, 38px) !important;
   }
 }
 

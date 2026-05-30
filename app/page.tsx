@@ -409,8 +409,8 @@ export default function ObsidianTerminal() {
 
           {/* Mobile: grid top-right, text bottom-left */}
           <div
-            className="md:hidden absolute z-10"
-            style={{ top: '76px', right: '16px', width: '248px' }}
+            className="act-iv-mobile-grid md:hidden absolute z-10"
+            style={{ top: '120px', right: '16px', width: '248px' }}
           >
             <div className="grid-200-mobile">
               {ALLOCATION_SQUARES.map((i) => (
@@ -423,14 +423,14 @@ export default function ObsidianTerminal() {
           </div>
 
           <div
-            className="md:hidden absolute bottom-0 left-0 w-full flex flex-col px-6 pb-8 pt-6 z-10 hud-scrim-mask"
+            className="act-iv-mobile-text md:hidden absolute bottom-0 left-0 w-full flex flex-col px-6 pb-8 pt-6 z-10 hud-scrim-mask"
             style={{ height: '40%' }}
           >
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 3 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(22px, 6vw, 40px)', textWrap: 'balance' } as React.CSSProperties}
             >
-              The Evolution Catalyst:<br />Community Innovation Fund
+              Seed the Chain.<br />Shape the Future.
             </h2>
             <p className="mt-3 text-[14px] font-light tracking-wider text-neutral-400 leading-[1.6]" style={{ maxWidth: '34ch' }}>
               10,000,000 KPS committed to ecosystem builders. Competitive selection model. Protected by a 180-day initial dormancy phase.
@@ -439,8 +439,8 @@ export default function ObsidianTerminal() {
 
           {/* Desktop: two-column — LEFT: text, RIGHT: grid */}
           <div
-            className="hidden md:flex absolute inset-x-0 flex-row items-center gap-16 px-16 z-10"
-            style={{ top: '80px', bottom: '72px' }}
+            className="hidden md:flex absolute inset-x-0 flex-row items-center gap-16 z-10"
+            style={{ top: '80px', bottom: '72px', paddingLeft: '6%', paddingRight: '6%' }}
           >
             {/* LEFT column */}
             <div className="flex-1 flex flex-col justify-center">
@@ -448,7 +448,7 @@ export default function ObsidianTerminal() {
                 className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 3 ? 'active' : ''}`}
                 style={{ fontSize: 'clamp(26px, 3.5vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
               >
-                The Evolution Catalyst:<br />Community Innovation Fund
+                Seed the Chain.<br />Shape the Future.
               </h2>
               <p className="mt-5 text-[15px] font-light tracking-wider text-neutral-400 leading-[1.6]" style={{ maxWidth: '38ch' }}>
                 10,000,000 KPS committed to ecosystem builders. Competitive selection model. Protected by a 180-day initial dormancy phase.
@@ -458,20 +458,11 @@ export default function ObsidianTerminal() {
               </div>
             </div>
 
-            {/* RIGHT column — grid */}
-            <div className="flex-1 flex flex-col items-center justify-center">
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(20, 14px)', gap: '4px' }}>
+            {/* RIGHT column — grid, CSS classes allow landscape-phone shrink */}
+            <div className="flex-1 flex flex-col items-end justify-center">
+              <div className="grid-200-desktop">
                 {ALLOCATION_SQUARES.map((i) => (
-                  <div
-                    key={i}
-                    style={{
-                      width: '14px',
-                      height: '14px',
-                      backgroundColor: '#00F0FF',
-                      opacity: 0.12,
-                      border: '1px solid rgba(0,240,255,0.08)',
-                    }}
-                  />
+                  <div key={i} className="cell-200-desktop" />
                 ))}
               </div>
               <div className="font-mono text-[9px] tracking-[0.22em] text-[#00F0FF]/40 uppercase mt-3">
@@ -489,10 +480,10 @@ export default function ObsidianTerminal() {
         <section id="portal" className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={5} />
 
-          {/* Mobile-only eyebrow — desktop eyebrow is inside the centered column */}
-          <div className="absolute top-8 left-6 z-10 pt-4 overflow-hidden max-w-[55%] md:hidden">
-            <p className="font-mono text-[9px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
-              [ Horizon · 600 months ]
+          {/* Section eyebrow — top-left corner, same pattern as all other acts */}
+          <div className="section-eyebrow absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
+            <p className="font-mono text-[9px] md:text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
+              [ Twelve Articles · One Promise ]
             </p>
           </div>
 
@@ -601,7 +592,7 @@ export default function ObsidianTerminal() {
           </div>
 
           {/* ── Desktop: fully centered vertical stack ── */}
-          <div className="act-v-desktop-col hidden md:flex absolute inset-0 flex-col items-center justify-center z-10 px-8">
+          <div className="act-v-desktop-col hidden md:flex absolute inset-x-0 bottom-0 flex-col items-center justify-center z-10 px-8" style={{ top: '80px' }}>
 
             {/* 1. Eyebrow */}
             <p className="font-mono text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase">
@@ -609,7 +600,7 @@ export default function ObsidianTerminal() {
             </p>
 
             {/* 2. Timeline — 80% viewport width, centered */}
-            <div className="relative mt-10" style={{ width: '80%', maxWidth: '800px', height: '52px' }}>
+            <div className="act-v-timeline-desktop relative mt-10" style={{ width: '80%', maxWidth: '800px', height: '52px' }}>
               <div className="absolute left-0 right-0 h-px bg-[rgba(0,240,255,0.2)]" style={{ top: '6px' }} />
               {TIMELINE_MARKERS.map(({ year, pct, align, label }) => (
                 <div
@@ -636,7 +627,7 @@ export default function ObsidianTerminal() {
 
             {/* 3. Headline — centered */}
             <h2
-              className={`mt-8 font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] text-center kinetic-reveal ${activeSection === 4 ? 'active' : ''}`}
+              className={`act-v-headline mt-8 font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] text-center kinetic-reveal ${activeSection === 4 ? 'active' : ''}`}
               style={{ fontSize: 'clamp(26px, 7vw, 72px)', textWrap: 'balance' } as React.CSSProperties}
             >
               600 Months.<br />One Promise.
@@ -685,10 +676,6 @@ export default function ObsidianTerminal() {
               Deployer · 0x000...000
             </div>
 
-            {/* 8. Final statement — centered */}
-            <div className="mt-2 text-center font-mono text-[9px] tracking-[0.18em] text-neutral-600 uppercase">
-              Twelve Articles. One Promise.
-            </div>
           </div>
 
         </section>
