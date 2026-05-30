@@ -129,50 +129,150 @@ export default function ObsidianTerminal() {
           </div>
         </section>
 
-        {/* ── ACT II: The Pulse — Number-led layout ── */}
+        {/* ── ACT II: The Pulse — Milestone Engine ── */}
         <section className="relative w-full h-dvh flex flex-col justify-between bg-transparent border-t border-[rgba(255,255,255,0.02)] overflow-hidden">
           <AmbientContent act={2} />
 
           <div className="section-eyebrow absolute top-8 left-6 md:top-16 md:left-16 z-10 pt-4 md:pt-8 overflow-hidden max-w-[55%] md:max-w-none">
             <p className="font-mono text-[9px] md:text-[11px] tracking-[0.2em] text-[#00F0FF]/28 uppercase whitespace-nowrap">
-              [ Bonus rewards · VRF 2.5 ]
+              [ Milestone Engine · Deterministic ]
             </p>
           </div>
 
-          <div className="absolute bottom-0 left-0 w-full h-[64%] md:h-auto md:w-[44%] md:left-[8%] md:top-1/2 md:-translate-y-1/2 flex flex-col justify-center px-6 pb-10 pt-8 md:p-0 z-10 hud-scrim-mask">
-            {/* Dominant number */}
-            <span className="act-ii-number font-mono leading-none font-light text-[#00F0FF] tracking-tight" style={{ fontSize: 'clamp(3.5rem, 16vw, 6.5rem)' }}>
+          {/* ── Mobile: top number + chips ── */}
+          <div className="md:hidden absolute left-6 right-6 z-10" style={{ top: '76px' }}>
+            <span className="font-mono leading-none font-light text-[#00F0FF] tracking-tight block" style={{ fontSize: 'clamp(2.8rem, 13vw, 4.5rem)' }}>
               16,666
             </span>
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[#00F0FF]/50 uppercase mt-2 mb-6">
+            <span className="font-mono text-[9px] tracking-[0.28em] text-[#00F0FF]/50 uppercase mt-1.5 mb-3 block">
               KPS / month
             </span>
-
-            {/* Stat chips */}
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-1.5">
               {[
-                '[ Draw · monthly ]',
-                '[ Wallet cap · 1% ]',
-                '[ Claim window · 29 days ]',
+                '[ Milestone Pool · Accumulates Monthly ]',
+                '[ 6 Tiers · 1.5× → 5.0× ]',
+                '[ Claim Window · 29 Days ]',
+                '[ Wallet Cap · 1% ]',
               ].map((chip) => (
                 <span
                   key={chip}
-                  className="font-mono text-[11px] tracking-[0.15em] text-[#00F0FF]/50 border border-[rgba(0,240,255,0.12)] px-2.5 py-1 whitespace-nowrap"
+                  className="font-mono text-[8px] tracking-[0.1em] text-[#00F0FF]/45 border border-[rgba(0,240,255,0.1)] px-2 py-0.5 whitespace-nowrap"
                 >
                   {chip}
                 </span>
               ))}
             </div>
+          </div>
 
+          {/* ── Mobile: bottom content — headline + description + tier rows ── */}
+          <div className="md:hidden absolute bottom-0 left-0 w-full flex flex-col px-6 pb-6 pt-4 z-10 hud-scrim-mask" style={{ height: '55%' }}>
+            <h2
+              className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.05] tracking-[-0.02em] kinetic-reveal ${activeSection === 1 ? 'active' : ''}`}
+              style={{ fontSize: 'clamp(19px, 5vw, 30px)', textWrap: 'balance' } as React.CSSProperties}
+            >
+              Commit. Tier Up. Claim Your Share.
+            </h2>
+            <p className="mt-2 text-[13px] font-light tracking-wider text-neutral-400 leading-[1.5]" style={{ maxWidth: '38ch' }}>
+              Stake KPS to reach your tier. A Milestone Distribution Event opens when the protocol hits critical mass — your share weighted by commitment and duration. No randomness. Deterministic reward.
+            </p>
+            <div className="mt-3 flex flex-col gap-1.5">
+              {([
+                { name: 'BRONZE', req: '90 days',  mult: '1.5× — 2.0×', accent: 'rgba(205,127,50,0.75)'  },
+                { name: 'SILVER', req: '180 days', mult: '2.5× — 3.0×', accent: 'rgba(192,192,192,0.65)' },
+                { name: 'GOLD',   req: '360 days', mult: '4.0× — 5.0×', accent: 'rgba(201,162,39,0.85)'  },
+              ] as { name: string; req: string; mult: string; accent: string }[]).map(({ name, req, mult, accent }) => (
+                <div
+                  key={name}
+                  className="flex items-center justify-between px-3 py-2 border border-[rgba(255,255,255,0.05)]"
+                  style={{ borderLeftColor: accent, borderLeftWidth: '2px' }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className="font-mono text-[10px] tracking-[0.14em] uppercase" style={{ color: accent }}>{name}</span>
+                    <span className="font-mono text-[8px] tracking-[0.08em] text-neutral-600">· {req}</span>
+                  </div>
+                  <span className="font-mono text-[10px] tracking-[0.04em] text-[#00F0FF]/65">{mult}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Desktop: left column — number + chips + headline + description ── */}
+          <div className="hidden md:flex absolute left-[8%] top-1/2 -translate-y-1/2 w-[40%] flex-col justify-center z-10">
+            <span className="act-ii-number font-mono leading-none font-light text-[#00F0FF] tracking-tight" style={{ fontSize: 'clamp(3.5rem, 9vw, 6rem)' }}>
+              16,666
+            </span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[#00F0FF]/50 uppercase mt-2 mb-5">
+              KPS / month
+            </span>
+            <div className="flex flex-wrap gap-2 mb-5">
+              {[
+                '[ Milestone Pool · Accumulates Monthly ]',
+                '[ 6 Tiers · 1.5× → 5.0× ]',
+                '[ Claim Window · 29 Days ]',
+                '[ Wallet Cap · 1% ]',
+              ].map((chip) => (
+                <span
+                  key={chip}
+                  className="font-mono text-[10px] tracking-[0.12em] text-[#00F0FF]/50 border border-[rgba(0,240,255,0.12)] px-2.5 py-1 whitespace-nowrap"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
             <h2
               className={`font-extralight text-[#E5E5E5] uppercase font-sans leading-[1.1] tracking-[-0.02em] kinetic-reveal ${activeSection === 1 ? 'active' : ''}`}
-              style={{ fontSize: 'clamp(26px, 7vw, 54px)', textWrap: 'balance' } as React.CSSProperties}
+              style={{ fontSize: 'clamp(22px, 3.5vw, 42px)', textWrap: 'balance' } as React.CSSProperties}
             >
-              Hold to Level Up
+              Commit. Tier Up.<br />Claim Your Share.
             </h2>
-            <p className="mt-4 max-w-xs text-[14px] md:text-[15px] font-light tracking-wider text-neutral-400 leading-[1.6]">
-              Commit KPS to secure the network. Unlock randomised, VRF-verified bonus rewards — strict 29-day claim window, principal always returned.
+            <p className="mt-4 text-[14px] font-light tracking-wider text-neutral-400 leading-[1.6]" style={{ maxWidth: '38ch' }}>
+              Stake KPS to reach your tier. When the protocol hits critical mass, a Milestone Distribution Event opens — your share weighted by how much you&apos;ve committed and how long you&apos;ve held. No randomness. No luck. Disciplined commitment, deterministic reward.
             </p>
+          </div>
+
+          {/* ── Desktop: right column — tier cards ── */}
+          <div className="hidden md:flex absolute right-[6%] top-1/2 -translate-y-1/2 w-[36%] flex-col gap-3 z-10">
+            {([
+              {
+                name: 'BRONZE',
+                req:  '50,000 KPS · 90 days',
+                mult: '1.5× — 2.0×',
+                desc: 'Entry tier. Hold the floor for 90 days to unlock your first Milestone Distribution share.',
+                accent: 'rgba(205,127,50,0.75)',
+                bg:    'rgba(205,127,50,0.04)',
+              },
+              {
+                name: 'SILVER',
+                req:  '50,000 KPS · 180 days',
+                mult: '2.5× — 3.0×',
+                desc: 'Conviction tier. Six months of continuous commitment earns a weighted share of up to 3× base allocation.',
+                accent: 'rgba(192,192,192,0.6)',
+                bg:    'rgba(192,192,192,0.03)',
+              },
+              {
+                name: 'GOLD',
+                req:  '50,000 KPS · 360 days',
+                mult: '4.0× — 5.0×',
+                desc: 'Sovereign tier. One year of unbroken commitment. Maximum protocol reward weight. 5× for 100k+ holders.',
+                accent: 'rgba(201,162,39,0.85)',
+                bg:    'rgba(201,162,39,0.04)',
+              },
+            ] as { name: string; req: string; mult: string; desc: string; accent: string; bg: string }[]).map(({ name, req, mult, desc, accent, bg }) => (
+              <div
+                key={name}
+                className="border border-[rgba(255,255,255,0.06)] p-4"
+                style={{ borderTopColor: accent, borderTopWidth: '2px', background: bg }}
+              >
+                <div className="flex items-baseline justify-between mb-2">
+                  <span className="font-mono text-[11px] tracking-[0.2em] uppercase font-medium" style={{ color: accent }}>{name}</span>
+                  <span className="font-mono text-[15px] tracking-[0.04em] text-[#00F0FF]/80">{mult}</span>
+                </div>
+                <div className="font-mono text-[9px] tracking-[0.14em] text-neutral-600 uppercase mb-2.5">
+                  [ {req} ]
+                </div>
+                <p className="text-[12px] font-light text-neutral-500 leading-[1.5]">{desc}</p>
+              </div>
+            ))}
           </div>
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.2em] text-[#E5E5E5]/20 uppercase z-10 block">
